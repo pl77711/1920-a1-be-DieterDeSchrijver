@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace WebIVBackend.Domain.Models
 {
     public class User
     {
+        [BsonId] [BsonRepresentation(BsonType.ObjectId)]
         public string Id;
 
         public string FirstName;

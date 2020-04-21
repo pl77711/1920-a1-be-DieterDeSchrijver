@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Identity;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver.Linq;
 
 namespace WebIVBackend.Domain.Models
 {
     public class Day
     {
+        [BsonId] [BsonRepresentation(BsonType.ObjectId)]
         public string Id;
 
         public DateTime Date;

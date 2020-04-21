@@ -5,7 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MongoDB.Driver" Version="2.11.0-beta1" />
       <PackageReference Include="NSwag.AspNetCore" Version="13.4.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data" />
     </ItemGroup>
 
 

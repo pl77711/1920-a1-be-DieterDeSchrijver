@@ -27,6 +27,10 @@
   "frameworks": {
     "netcoreapp3.1": {
       "dependencies": {
+        "MongoDB.Driver": {
+          "target": "Package",
+          "version": "[2.11.0-beta1, )"
+        },
         "NSwag.AspNetCore": {
           "target": "Package",
           "version": "[13.4.2, )"

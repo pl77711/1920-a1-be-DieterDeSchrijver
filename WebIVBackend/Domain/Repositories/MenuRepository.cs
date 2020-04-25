@@ -31,7 +31,7 @@ namespace WebIVBackend.Domain.Repositories
 
         public IList<Menu> GetAll()
         {
-            return _menus.Find(new BsonDocument()).ToList();
+            return _menus.Find(c => true).ToList();
         }
 
         public Menu UpdateMenu(Menu menu)

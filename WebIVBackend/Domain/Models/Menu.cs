@@ -8,9 +8,9 @@ namespace WebIVBackend.Domain.Models
         [BsonId] [BsonRepresentation(BsonType.ObjectId)]
         public string Id;
 
-        public string Title;
+        public string Title { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
 
         public double Price;
 

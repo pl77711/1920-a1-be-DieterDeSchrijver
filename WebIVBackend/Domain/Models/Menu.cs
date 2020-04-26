@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using System.Collections;
+using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace WebIVBackend.Domain.Models
@@ -11,6 +13,8 @@ namespace WebIVBackend.Domain.Models
         public string Title { get; set; }
 
         public string Description { get; set; }
+        
+        public List<string> Allergies { get; set; }
 
         public double Price;
 
@@ -21,8 +25,16 @@ namespace WebIVBackend.Domain.Models
 
         public Menu(string title, string description)
         {
-            this.Title = title;
-            this.Description = description;
+            Title = title;
+            Description = description;
         }
+        
+        public Menu(string title, string description, List<string> allergies)
+        {
+            Title = title;
+            Description = description;
+            Allergies = allergies;
+        }
+        
     }
 }

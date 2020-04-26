@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -20,12 +21,11 @@ namespace WebIVBackend.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> CreateMenu(string title, string description)
+        public ActionResult<string> CreateMenu(Menu m)
         {
-            Menu menu = new Menu(title, description);
-            _menus.AddMenu(menu);
+            _menus.AddMenu(m);
 
-            return "200 OK";
+            return CreatedAtAction(nameof(GetMenu), new {id = m.Id}, m);
         }
         
         

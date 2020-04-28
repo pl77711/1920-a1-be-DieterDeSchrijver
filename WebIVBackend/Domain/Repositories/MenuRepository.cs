@@ -26,7 +26,7 @@ namespace WebIVBackend.Domain.Repositories
 
         public Menu GetMenu(string id)
         {
-          return _menus.Find(m => m.Id.Equals(id)).First();
+          return _menus.Find(m => m.Id.Equals(id)).FirstOrDefault();
         }
 
         public IList<Menu> GetAll()
@@ -37,7 +37,12 @@ namespace WebIVBackend.Domain.Repositories
         public Menu UpdateMenu(Menu menu)
         {
             _menus.FindOneAndReplace(m => m.Id.Equals(menu.Id), menu);
-            return _menus.Find(m => m.Id.Equals(menu.Id)).First();
+            return _menus.Find(m => m.Id.Equals(menu.Id)).FirstOrDefault();
+        }
+
+        public void DeleteMenu(string id)
+        {
+            _menus.DeleteOne(m => m.Id.Equals(id));
         }
     }
 }

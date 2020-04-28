@@ -8,8 +8,9 @@ using WebIVBackend.Domain.Repositories;
 
 namespace WebIVBackend.Controllers
 {
+    [ApiConventionType(typeof(DefaultApiConventions))]
     [ApiController]
-    [Route("menu/")]
+    [Route("api/[controller]")]
     public class MenuController : ControllerBase
     {
         
@@ -41,7 +42,13 @@ namespace WebIVBackend.Controllers
         [Route("{id}")]
         public ActionResult<Menu> GetMenu(string id)
         {
-            return _menus.GetMenu(id);
+            Menu menu = _menus.GetMenu(id);
+            if (menu == null)
+            {
+                return NotFound();
+            }
+
+            return menu;
         }
         
         [HttpPut]
@@ -52,6 +59,18 @@ namespace WebIVBackend.Controllers
             menu.Description = m.Description;
             
             return _menus.UpdateMenu(menu);
+        }
+        
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMenu(string id)
+        {
+            Menu menu = _menus.GetMenu(id);
+            if (menu == null)
+            {
+                return NotFound();
+            }
+            _menus.DeleteMenu(id);
+            return NoContent();
         }
     }
 }

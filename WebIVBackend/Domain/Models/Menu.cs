@@ -8,7 +8,7 @@ namespace WebIVBackend.Domain.Models
     public class Menu
     {
         [BsonId] [BsonRepresentation(BsonType.ObjectId)]
-        public string Id;
+        public string Id { get; set; }
 
         public string Title { get; set; }
 

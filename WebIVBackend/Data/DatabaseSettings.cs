@@ -4,6 +4,7 @@
             {
                 public string DaysCollectionName { get; set; }
                 public string UsersCollectionName { get; set; }
+                public string AllergiesCollectionName { get; set;}
                 public string MenusCollectionName { get; set; }
                 public string ConnectionString { get; set; }
                 public string DatabaseName { get; set; }
@@ -14,6 +15,7 @@
                 string DaysCollectionName { get; set; }
                 string UsersCollectionName { get; set; }
                 string MenusCollectionName { get; set; }
+                string AllergiesCollectionName { get; set;}
                 string ConnectionString { get; set; }
                 string DatabaseName { get; set; }
             }

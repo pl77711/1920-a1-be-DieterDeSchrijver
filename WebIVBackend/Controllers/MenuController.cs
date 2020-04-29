@@ -13,31 +13,44 @@ namespace WebIVBackend.Controllers
     [Route("api/[controller]")]
     public class MenuController : ControllerBase
     {
-        
         private MenuRepository _menus;
+        private AllergyRepository _allergies;
 
-        public MenuController(MenuRepository menus)
+        public MenuController(MenuRepository menus, AllergyRepository allergies)
         {
             _menus = menus;
+            _allergies = allergies;
         }
 
         [HttpPost]
-        public ActionResult<string> CreateMenu(Menu m)
+        public ActionResult<Menu> CreateMenu(MenuToCreate m)
         {
-            _menus.AddMenu(m);
+            Menu menu = new Menu(m.Title, m.Description);
+            if (m.Allergies.Count == 0)
+            {
+            }
+            else
+            {
+                foreach (var allergy in m.Allergies)
+                {
+                    menu.Allergies.Add(_allergies.GetById(allergy));
+                }
+            }
+            
+            _menus.AddMenu(menu);
 
-            return CreatedAtAction(nameof(GetMenu), new {id = m.Id}, m);
+            return menu;
         }
-        
-        
+
+
         // GET
         [HttpGet]
         public IList<Menu> GetMenus()
         {
             return _menus.GetAll();
         }
-        
-        
+
+
         [HttpGet]
         [Route("{id}")]
         public ActionResult<Menu> GetMenu(string id)
@@ -50,17 +63,26 @@ namespace WebIVBackend.Controllers
 
             return menu;
         }
-        
-        [HttpPut]
-        public ActionResult<Menu> EditProduct(Menu m, string id)
+
+        [HttpPut("{id}")]
+        public ActionResult<Menu> PutRecipe(MenuToCreate m, string id)
         {
-            Menu menu = _menus.GetMenu(id);
-            menu.Title = m.Title;
-            menu.Description = m.Description;
+            Menu menu = new Menu(m.Title, m.Description);
+            menu.Id = id;
+            if (m.Allergies.Count == 0)
+            {
+            }
+            else
+            {
+                foreach (var allergy in m.Allergies)
+                {
+                    menu.Allergies.Add(_allergies.GetById(allergy));
+                }
+            }
             
             return _menus.UpdateMenu(menu);
         }
-        
+
         [HttpDelete("{id}")]
         public IActionResult DeleteMenu(string id)
         {
@@ -69,8 +91,17 @@ namespace WebIVBackend.Controllers
             {
                 return NotFound();
             }
+
             _menus.DeleteMenu(id);
             return NoContent();
+        }
+
+        [HttpGet]
+        [Route("/api/allergies")]
+        public IList<Allergy> GetAllergies()
+        {
+            IList<Allergy> allergies = _allergies.GetAll();
+            return allergies;
         }
     }
 }

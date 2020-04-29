@@ -14,27 +14,31 @@ namespace WebIVBackend.Domain.Models
 
         public string Description { get; set; }
         
-        public List<string> Allergies { get; set; }
+        public List<Allergy> Allergies { get; set; }
 
         public double Price;
 
         public Menu()
         {
-            
+            Allergies = new List<Allergy>();
         }
 
         public Menu(string title, string description)
         {
             Title = title;
             Description = description;
+            Allergies = new List<Allergy>();
         }
         
-        public Menu(string title, string description, List<string> allergies)
+        public Menu(string title, string description, List<Allergy> allergies)
         {
             Title = title;
             Description = description;
             Allergies = allergies;
         }
+        
+        
+        
         
     }
 }

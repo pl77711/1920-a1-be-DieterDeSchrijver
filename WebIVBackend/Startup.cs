@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebIVBackend.Data;
+using WebIVBackend.Domain.Models;
 using WebIVBackend.Domain.Repositories;
 
 namespace WebIVBackend
@@ -40,6 +41,7 @@ namespace WebIVBackend
             services.AddSwaggerDocument();
 
             services.AddSingleton<MenuRepository>();
+            services.AddSingleton<AllergyRepository>();
             services.AddSingleton<DataInit>();
         }
 

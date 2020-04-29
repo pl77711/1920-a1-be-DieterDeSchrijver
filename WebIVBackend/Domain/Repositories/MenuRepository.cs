@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -15,8 +16,10 @@ namespace WebIVBackend.Domain.Repositories
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
+            
 
             _menus = database.GetCollection<Menu>(settings.MenusCollectionName);
+            
         }
 
         public void AddMenu(Menu menu)
@@ -36,6 +39,7 @@ namespace WebIVBackend.Domain.Repositories
 
         public Menu UpdateMenu(Menu menu)
         {
+            var d = _menus.Find(m => m.Id.Equals(menu.Id)).FirstOrDefault();
             _menus.FindOneAndReplace(m => m.Id.Equals(menu.Id), menu);
             return _menus.Find(m => m.Id.Equals(menu.Id)).FirstOrDefault();
         }

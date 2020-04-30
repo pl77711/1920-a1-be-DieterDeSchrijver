@@ -1,13 +1,16 @@
+
 ﻿using System.Collections.Generic;
 using MongoDB.Driver;
 using WebIVBackend.Data;
 using WebIVBackend.Domain.Models;
 
 namespace WebIVBackend.Domain.Repositories
+
 {
     public class AllergyRepository
     {
         
+
         private IMongoCollection<Allergy> _allergies;
 
         public AllergyRepository(IDatabaseSettings settings)

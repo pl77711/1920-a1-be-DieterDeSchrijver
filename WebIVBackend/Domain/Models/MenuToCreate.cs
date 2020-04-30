@@ -1,3 +1,4 @@
+
 ﻿using System.Collections.Generic;
 
 namespace WebIVBackend.Domain.Models
@@ -33,7 +34,7 @@ namespace WebIVBackend.Domain.Models
         
         
         
-        
+            
         
     }
 }

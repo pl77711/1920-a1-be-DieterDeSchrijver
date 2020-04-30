@@ -42,7 +42,9 @@ namespace WebIVBackend
 
             services.AddSingleton<MenuRepository>();
             services.AddSingleton<AllergyRepository>();
+            services.AddSingleton<DayRepository>();
             services.AddSingleton<DataInit>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

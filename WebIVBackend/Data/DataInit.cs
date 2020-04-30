@@ -12,6 +12,7 @@ namespace WebIVBackend.Data
     {
         private IMongoCollection<Menu> _menus;
         private IMongoCollection<Allergy> _allergies;
+        private IMongoCollection<Day> _days;
 
         public DataInit(IDatabaseSettings settings)
         {
@@ -19,9 +20,11 @@ namespace WebIVBackend.Data
             var database = client.GetDatabase(settings.DatabaseName);
             database.DropCollection(settings.MenusCollectionName);
             database.DropCollection(settings.AllergiesCollectionName);
+            database.DropCollection(settings.DaysCollectionName);
 
             _allergies = database.GetCollection<Allergy>(settings.AllergiesCollectionName);
             _menus = database.GetCollection<Menu>(settings.MenusCollectionName);
+            _days = database.GetCollection<Day>(settings.DaysCollectionName);
         }
 
         public void init()
@@ -32,7 +35,6 @@ namespace WebIVBackend.Data
             Allergy allergy3 = new Allergy("Pinda", "pindaAllergy");
             Allergy allergy4 = new Allergy("Noten", "notenAllergy");
             Allergy allergy5 = new Allergy("Vis, schaal- en schelpdieren", "visSchaalSchelpAllergy");
-            Allergy allergy6 = new Allergy("Roosfruit", "roosFruitAllergy");
             Allergy allergy7 = new Allergy("Soja", "sojaAllergy");
             Allergy allergy8 = new Allergy("Tarwe", "tarweAllergy");
             
@@ -44,7 +46,7 @@ namespace WebIVBackend.Data
             List<Allergy> allergies2 = new List<Allergy>();
             allergies2.Add(allergy4);
             allergies2.Add(allergy5);
-            allergies2.Add(allergy6);
+            allergies2.Add(allergy1);
             
             List<Allergy> allergies3 = new List<Allergy>();
             allergies3.Add(allergy1);
@@ -56,7 +58,6 @@ namespace WebIVBackend.Data
             _allergies.InsertOne(allergy3);
             _allergies.InsertOne(allergy4);
             _allergies.InsertOne(allergy5);
-            _allergies.InsertOne(allergy6);
             _allergies.InsertOne(allergy7);
             _allergies.InsertOne(allergy8);
             
@@ -72,7 +73,17 @@ namespace WebIVBackend.Data
             _menus.InsertOne(menu4);
             _menus.InsertOne(menu5);
             
+            DateTime date1 = new DateTime(2020,5,12);
+            DateTime date2 = new DateTime(2020,5,1);
+            DateTime date3 = new DateTime(2020,5,3);
             
+            Day day1 = new Day(date1,20, menu1);
+            Day day2 = new Day(date2,30, menu3);
+            Day day3 = new Day(date3,20, menu4);
+
+            _days.InsertOne(day1);
+            _days.InsertOne(day2);
+            _days.InsertOne(day3);
         }
     }
 }

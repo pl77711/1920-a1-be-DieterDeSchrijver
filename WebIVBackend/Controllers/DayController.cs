@@ -50,5 +50,18 @@ namespace WebIVBackend.Controllers
 
             return day;
         }
+        
+        [HttpDelete("{id}")]
+        public IActionResult DeleteDay(string id)
+        {
+            Day day = _days.GetDay(id);
+            if (day == null)
+            {
+                return NotFound();
+            }
+
+            _days.DeleteDay(id);
+            return NoContent();
+        }
     }
 }

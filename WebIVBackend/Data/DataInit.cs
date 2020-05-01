@@ -76,14 +76,23 @@ namespace WebIVBackend.Data
             DateTime date1 = new DateTime(2020,5,12);
             DateTime date2 = new DateTime(2020,5,1);
             DateTime date3 = new DateTime(2020,5,3);
+            DateTime date4 = new DateTime(2020,5,11);
+            DateTime date5 = new DateTime(2020,6,3);
+            DateTime date6 = new DateTime(2020,5,3);
             
             Day day1 = new Day(date1,20, menu1);
             Day day2 = new Day(date2,30, menu3);
             Day day3 = new Day(date3,20, menu4);
+            Day day4 = new Day(date4,20, menu2);
+            Day day5 = new Day(date5,30, menu5);
+            Day day6 = new Day(date6,20, menu1);
 
             _days.InsertOne(day1);
             _days.InsertOne(day2);
             _days.InsertOne(day3);
+            _days.InsertOne(day4);
+            _days.InsertOne(day5);
+            _days.InsertOne(day6);
         }
     }
 }

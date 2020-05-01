@@ -13,6 +13,7 @@ namespace WebIVBackend.Data
         private IMongoCollection<Menu> _menus;
         private IMongoCollection<Allergy> _allergies;
         private IMongoCollection<Day> _days;
+        private IMongoCollection<User> _users;
 
         public DataInit(IDatabaseSettings settings)
         {
@@ -21,10 +22,12 @@ namespace WebIVBackend.Data
             database.DropCollection(settings.MenusCollectionName);
             database.DropCollection(settings.AllergiesCollectionName);
             database.DropCollection(settings.DaysCollectionName);
+            database.DropCollection(settings.UsersCollectionName);
 
             _allergies = database.GetCollection<Allergy>(settings.AllergiesCollectionName);
             _menus = database.GetCollection<Menu>(settings.MenusCollectionName);
             _days = database.GetCollection<Day>(settings.DaysCollectionName);
+            _users = database.GetCollection<User>(settings.UsersCollectionName);
         }
 
         public void init()
@@ -93,6 +96,30 @@ namespace WebIVBackend.Data
             _days.InsertOne(day4);
             _days.InsertOne(day5);
             _days.InsertOne(day6);
+            
+            User user1 = new User("Jonas", "De Smet", "jonasdesmet@gmail.com");
+            User user2 = new User("Elke", "De Smet", "elkeelke@gmail.com");
+            User user3 = new User("Thomas", "De Trein", "voetballer12@gmail.com");
+            User user4 = new User("Saartje", "De Backer", "saartjeprive@gmail.com");
+            User user5 = new User("Tuur", "Meerts", "tuurm@gmail.com");
+            
+            
+            _users.InsertOne(user1);
+            _users.InsertOne(user2);
+            _users.InsertOne(user3);
+            _users.InsertOne(user4);
+            _users.InsertOne(user5);
+            
+            day1.AddUser(user1);
+            day1.AddUser(user2);
+            day1.AddUser(user3);
+            day1.AddUser(user4);
+            day1.AddUser(user5);
+            day2.AddUser(user2);
+            day2.AddUser(user3);
+            
+            _days.FindOneAndReplace(m => m.Id.Equals(day1.Id), day1);
+            _days.FindOneAndReplace(m => m.Id.Equals(day2.Id), day2);
         }
     }
 }

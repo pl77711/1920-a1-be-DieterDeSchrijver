@@ -41,19 +41,20 @@ namespace WebIVBackend.Domain.Models
             if (CanAdd((user)))
             {
                 RegisteredUsers.Add(user);
+                user.AddDay(Id);
             }
           
         }
 
         private bool CanAdd(User user)
         {
-            if (this.MaxUsers < user.AmountOfPeople + RegisteredUsers.Count)
+            if (this.MaxUsers <  RegisteredUsers.Count)
             {
                 throw new System.ArgumentException("Day is already full");
                 
             }
             
-            if (RegisteredUsers.Any(u => u.Id == user.Id))
+            if (RegisteredUsers.Any(u => u.Email == user.Email))
             {
                 throw new System.ArgumentException("User already registered");
             }

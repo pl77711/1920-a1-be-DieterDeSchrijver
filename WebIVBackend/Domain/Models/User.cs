@@ -16,32 +16,29 @@ namespace WebIVBackend.Domain.Models
 
         public string Email { get; set; }
 
-        public List<Day> RegisteredDays {get; set;}
-
-        public int AmountOfPeople { get; set; }
+        public List<string> RegisteredDays {get; set;}
 
         public User()
         {
             
         }
 
-        public User(string firstName, string lastName, string email, int amountOfPeople)
+        public User(string firstName, string lastName, string email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
-            RegisteredDays = new List<Day>();
-            AmountOfPeople = amountOfPeople;
+            RegisteredDays = new List<string>();
         }
         
-        public void AddDay(Day day)
+        public void AddDay(string id)
         {
-            if (RegisteredDays.Any(d => d.Id == day.Id))
+            if (RegisteredDays.Any(d => d == id))
             {
                 throw new System.ArgumentException("Day already registered");
             }
 
-            RegisteredDays.Add(day);
+            RegisteredDays.Add(id);
         }
 
     }

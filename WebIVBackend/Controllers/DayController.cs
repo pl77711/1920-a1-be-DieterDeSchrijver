@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
+using WebIVBackend.Data;
 using WebIVBackend.Domain.Models;
 using WebIVBackend.Domain.Repositories;
 
@@ -13,11 +17,13 @@ namespace WebIVBackend.Controllers
         
         private DayRepository _days;
         private MenuRepository _menus;
+        private UserRepository _users;
 
-        public DayController(DayRepository days, MenuRepository menus)
+        public DayController(DayRepository days, MenuRepository menus, UserRepository users)
         {
             _days = days;
             _menus = menus;
+            _users = users;
         }
         
         // GET
@@ -63,5 +69,39 @@ namespace WebIVBackend.Controllers
             _days.DeleteDay(id);
             return NoContent();
         }
+
+        [HttpPost]
+        [Route("/api/register")]
+        public IActionResult Register(UserToRegister userToRegister)
+        {
+            if (!_days.Excist(userToRegister.DayIds))
+            {
+                return BadRequest();
+            }
+
+            List<Day> days = _days.GetMultipleDays(userToRegister.DayIds);
+            foreach (var day in days)
+            {
+                User u = _users.GetUser(userToRegister.Email);
+                if (u == null)
+                {
+                    u = new User(userToRegister.FirstName, userToRegister.LastName, userToRegister.Email);
+                    day.AddUser(u);
+                    _users.AddUser(u);
+                    _days.UpdateDay(day);
+                    
+                }
+                else
+                {
+                    day.AddUser(u);
+                    _users.UpdateUser(u);
+                    _days.UpdateDay(day);
+                    
+                }
+            }
+
+            return Ok();
+        }
+        
     }
 }

@@ -38,7 +38,7 @@ namespace WebIVBackend.Domain.Models
 
         public void AddUser(User user)
         {
-            if (CanAdd((user)))
+            if (CanAdd(user))
             {
                 RegisteredUsers.Add(user);
                 user.AddDay(Id);
@@ -54,7 +54,7 @@ namespace WebIVBackend.Domain.Models
                 
             }
             
-            if (RegisteredUsers.Any(u => u.Email == user.Email))
+            if (RegisteredUsers.Any(u => u.Id == user.Id))
             {
                 throw new System.ArgumentException("User already registered");
             }

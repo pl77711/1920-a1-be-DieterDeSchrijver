@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing.Template;
 using Newtonsoft.Json;
 using WebIVBackend.Domain.Models;
 using WebIVBackend.Domain.Repositories;
@@ -35,6 +36,15 @@ namespace WebIVBackend.Controllers
                 {
                     menu.Allergies.Add(_allergies.GetById(allergy));
                 }
+            }
+
+            if (m.ImageSrc == null || m.ImageSrc.Equals(""))
+            {
+                menu.ImageSrc = m.ImageSrc;
+            }
+            else
+            {
+                menu.ImageSrc = "template";
             }
             
             _menus.AddMenu(menu);

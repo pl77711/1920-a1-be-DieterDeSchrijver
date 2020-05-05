@@ -16,7 +16,7 @@ namespace WebIVBackend.Domain.Models
         
         public List<Allergy> Allergies { get; set; }
 
-        public double Price;
+        public string ImageSrc { get; set; } 
 
         public Menu()
         {
@@ -35,6 +35,14 @@ namespace WebIVBackend.Domain.Models
             Title = title;
             Description = description;
             Allergies = allergies;
+        }
+        
+        public Menu(string title, string description, List<Allergy> allergies, string imageSrc)
+        {
+            Title = title;
+            Description = description;
+            Allergies = allergies;
+            ImageSrc = imageSrc;
         }
         
         

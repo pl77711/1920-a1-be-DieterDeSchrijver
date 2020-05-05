@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MongoDB.Driver;
 using WebIVBackend.Data;
 using WebIVBackend.Domain.Models;
@@ -45,5 +46,17 @@ namespace WebIVBackend.Domain.Repositories
         {
             _days.DeleteOne(m => m.Id.Equals(id));
         }
+
+        public bool Excist(IEnumerable<string> dayIds)
+        {
+            return dayIds.All(dayId => GetDay(dayId) != null);
+        }
+
+        public List<Day> GetMultipleDays(IEnumerable<string> dayIds)
+        {
+            return dayIds.Select(GetDay).ToList();
+        }
+        
+        
     }
 }

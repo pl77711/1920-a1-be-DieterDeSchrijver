@@ -43,6 +43,7 @@ namespace WebIVBackend
             services.AddSingleton<MenuRepository>();
             services.AddSingleton<AllergyRepository>();
             services.AddSingleton<DayRepository>();
+            services.AddSingleton<UserRepository>();
             services.AddSingleton<DataInit>();
             
         }

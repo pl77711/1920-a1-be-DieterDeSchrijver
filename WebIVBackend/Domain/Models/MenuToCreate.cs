@@ -11,6 +11,7 @@ namespace WebIVBackend.Domain.Models
         
             public List<string> Allergies { get; set; }
             
+            public string ImageSrc { get; set; }
 
             public MenuToCreate()
             {
@@ -29,6 +30,14 @@ namespace WebIVBackend.Domain.Models
                 Title = title;
                 Description = description;
                 Allergies = allergies;
+            }
+            
+            public MenuToCreate(string title, string description, List<string> allergies, string imageSrc)
+            {
+                Title = title;
+                Description = description;
+                Allergies = allergies;
+                ImageSrc = imageSrc;
             }
 
         

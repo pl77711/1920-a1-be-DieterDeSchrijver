@@ -60,6 +60,8 @@ namespace WebIVBackend
             
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.key);
+            
+            
             services.AddAuthentication(x =>
                 {
                     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -94,7 +96,7 @@ namespace WebIVBackend
                 });
 
                 c.OperationProcessors.Add(
-                    new AspNetCoreOperationSecurityScopeProcessor("JWT")); //adds the token when a request is send
+                    new AspNetCoreOperationSecurityScopeProcessor("JWT Token")); //adds the token when a request is send
             });
 
 

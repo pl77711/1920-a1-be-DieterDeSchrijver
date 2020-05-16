@@ -6,7 +6,7 @@ using WebIVBackend.Domain.Services;
 namespace WebIVBackend.Controllers
 {
     [ApiController]
-    [Route("auth/")]
+    [Route("api/")]
     public class AuthenticationController : Controller
     {
         private AdminService _as;

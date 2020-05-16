@@ -42,11 +42,11 @@ namespace WebIVBackend.Controllers
 
             if (m.ImageSrc == null || m.ImageSrc.Equals(""))
             {
-                menu.ImageSrc = m.ImageSrc;
+                menu.ImageSrc = "template";
             }
             else
             {
-                menu.ImageSrc = "template";
+                menu.ImageSrc = m.ImageSrc;
             }
             
             _menus.AddMenu(menu);
@@ -56,7 +56,6 @@ namespace WebIVBackend.Controllers
 
 
         // GET
-        [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public IList<Menu> GetMenus()
         {

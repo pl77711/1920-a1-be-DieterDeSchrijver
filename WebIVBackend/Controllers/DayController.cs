@@ -86,21 +86,28 @@ namespace WebIVBackend.Controllers
             foreach (var day in days)
             {
                 User u = _users.GetUser(userToRegister.Email);
-                if (u == null)
+
+                try
                 {
-                    u = new User(userToRegister.FirstName, userToRegister.LastName, userToRegister.Email);
-                    day.AddUser(u);
-                    _users.AddUser(u);
-                    _days.UpdateDay(day);
-                    
+                    if (u != null)
+                    {
+                        day.AddUser(u);
+                        _users.UpdateUser(u);
+                        _days.UpdateDay(day);
+                    }
+                    else
+                    {
+                        u = new User(userToRegister.FirstName, userToRegister.LastName, userToRegister.Email);
+                        day.AddUser(u);
+                        _users.AddUser(u);
+                        _days.UpdateDay(day);
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    day.AddUser(u);
-                    _users.UpdateUser(u);
-                    _days.UpdateDay(day);
-                    
+                    return BadRequest("Seems like you're already registered for on of these days...");
                 }
+                
             }
 
             return Ok();

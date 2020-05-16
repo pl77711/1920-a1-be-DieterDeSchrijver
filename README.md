@@ -15,6 +15,11 @@ Not only this but the application includes a fully functional managing platform 
 git clone https://github.com/Web-IV/1920-a1-be-DieterDeSchrijver.git
 ```
 
+* Navigate to the project:
+```
+cd WebIVBackend
+```
+
 * Run the project:
 ```
 dotnet run

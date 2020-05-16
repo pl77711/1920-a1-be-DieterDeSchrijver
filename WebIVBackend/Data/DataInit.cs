@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using WebIVBackend.Data;
@@ -14,26 +16,30 @@ namespace WebIVBackend.Data
         private IMongoCollection<Allergy> _allergies;
         private IMongoCollection<Day> _days;
         private IMongoCollection<User> _users;
+        private IMongoCollection<Admin> _admins;
 
         public DataInit(IDatabaseSettings settings)
         {
+
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             database.DropCollection(settings.MenusCollectionName);
             database.DropCollection(settings.AllergiesCollectionName);
             database.DropCollection(settings.DaysCollectionName);
             database.DropCollection(settings.UsersCollectionName);
+            database.DropCollection(settings.AdminsCollectionName);
 
             _allergies = database.GetCollection<Allergy>(settings.AllergiesCollectionName);
             _menus = database.GetCollection<Menu>(settings.MenusCollectionName);
             _days = database.GetCollection<Day>(settings.DaysCollectionName);
             _users = database.GetCollection<User>(settings.UsersCollectionName);
+            _admins = database.GetCollection<Admin>(settings.AdminsCollectionName);
         }
 
         public void init()
         {
             
-            Allergy allergy1 = new Allergy("Koemelk", "koeMelkAllergy");
+            Allergy allergy1 = new Allergy("KoemelkK", "koeMelkAllergy");
             Allergy allergy2 = new Allergy("Kippenei", "kippeneiAllergy");
             Allergy allergy3 = new Allergy("Pinda", "pindaAllergy");
             Allergy allergy4 = new Allergy("Noten", "notenAllergy");
@@ -120,6 +126,18 @@ namespace WebIVBackend.Data
             
             _days.FindOneAndReplace(m => m.Id.Equals(day1.Id), day1);
             _days.FindOneAndReplace(m => m.Id.Equals(day2.Id), day2);
+            
+            Admin admin = new Admin("jvo1@telenet.be", "Test123!");
+            _admins.InsertOne(admin);
+
+            CreateAdmin("jvo1@telenet.be", "Test123!");
+
+            
+        }
+        private void CreateAdmin(string email, string password)
+        {
+            Admin admin = new Admin(email, password);
+            _admins.InsertOne(admin);
         }
     }
 }

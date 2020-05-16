@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebIVBackend.Data;
 using WebIVBackend.Domain.Models;
@@ -46,6 +47,7 @@ namespace WebIVBackend.Controllers
             return day;
         }
         
+        [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public ActionResult<Day> CreateDay(DayToCreate d)
         {
@@ -57,6 +59,7 @@ namespace WebIVBackend.Controllers
             return day;
         }
         
+        [Authorize(Policy = "AdminOnly")]
         [HttpDelete("{id}")]
         public IActionResult DeleteDay(string id)
         {
@@ -69,7 +72,7 @@ namespace WebIVBackend.Controllers
             _days.DeleteDay(id);
             return NoContent();
         }
-
+        
         [HttpPost]
         [Route("/api/register")]
         public IActionResult Register(UserToRegister userToRegister)

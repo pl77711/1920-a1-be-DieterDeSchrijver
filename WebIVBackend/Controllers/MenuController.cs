@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Template;
 using Newtonsoft.Json;
@@ -23,6 +24,7 @@ namespace WebIVBackend.Controllers
             _allergies = allergies;
         }
 
+        [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public ActionResult<Menu> CreateMenu(MenuToCreate m)
         {
@@ -54,6 +56,7 @@ namespace WebIVBackend.Controllers
 
 
         // GET
+        [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public IList<Menu> GetMenus()
         {
@@ -74,6 +77,7 @@ namespace WebIVBackend.Controllers
             return menu;
         }
 
+        [Authorize(Policy = "AdminOnly")]
         [HttpPut("{id}")]
         public ActionResult<Menu> PutRecipe(MenuToCreate m, string id)
         {
@@ -93,6 +97,7 @@ namespace WebIVBackend.Controllers
             return _menus.UpdateMenu(menu);
         }
 
+        [Authorize(Policy = "AdminOnly")]
         [HttpDelete("{id}")]
         public IActionResult DeleteMenu(string id)
         {

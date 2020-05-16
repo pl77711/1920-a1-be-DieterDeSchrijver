@@ -38,6 +38,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-preview.3.20215.14, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.11.0-beta1, )"
@@ -45,6 +53,10 @@
             "NSwag.AspNetCore": {
               "target": "Package",
               "version": "[13.4.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.1, )"
             }
           },
           "imports": [

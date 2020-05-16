@@ -81,6 +81,7 @@ namespace WebIVBackend.Controllers
         public ActionResult<Menu> PutRecipe(MenuToCreate m, string id)
         {
             Menu menu = new Menu(m.Title, m.Description);
+            menu.ImageSrc = "template";
             menu.Id = id;
             if (m.Allergies.Count == 0)
             {

@@ -105,12 +105,12 @@ namespace WebIVBackend.Controllers
                 }
                 catch (Exception e)
                 {
-                    return BadRequest("Seems like you're already registered for on of these days...");
+                    return BadRequest(e.Message);
                 }
                 
             }
 
-            return Ok();
+            return StatusCode(200);
         }
         
     }

@@ -126,6 +126,8 @@ namespace WebIVBackend
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
+            
+
             dataInit.init();
             
             

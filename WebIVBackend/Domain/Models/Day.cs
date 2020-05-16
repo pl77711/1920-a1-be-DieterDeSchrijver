@@ -48,9 +48,9 @@ namespace WebIVBackend.Domain.Models
 
         private bool CanAdd(User user)
         {
-            if (this.MaxUsers <  RegisteredUsers.Count)
+            if (MaxUsers <=  RegisteredUsers.Count)
             {
-                throw new System.ArgumentException("Day is already full");
+                throw new System.ArgumentException( Date.ToString("dd-MM-yyyy") +" is already full");
                 
             }
             

@@ -1,10 +1,10 @@
-# [BeireCooleBites](http://dieterdeschrijver.be/) (WEBIV PROJECT 2020) - FRONTEND
+# [BeireCooleBites](http://dieterdeschrijver.be/) (WEBIV PROJECT 2020) - BACKEND
 
 BeireCooleBites is a web application designed for people who want to register online for the BeireCooleBites week. It is an initiative by Beire Cool where they sell lunch to the benefit of 'De Warmste Week'.
 
 Not only this but the application includes a fully functional managing platform for all the days and menus.
 
-<img src="src/assets/ezgif-4-0a5800767ae7.gif" alt="demo gif" />
+<img src="WebIVBackend/assets/ezgif-4-0a5800767ae7.gif" alt="demo gif" />
 
 ## Getting Started
 

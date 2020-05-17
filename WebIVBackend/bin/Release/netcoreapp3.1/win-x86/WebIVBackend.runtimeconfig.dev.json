@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\diete\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\diete\\.nuget\\packages"
+    ]
+  }
+}

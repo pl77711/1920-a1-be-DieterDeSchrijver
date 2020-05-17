@@ -54,7 +54,6 @@ C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Deb
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.csprojAssemblyReference.cache
-C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.csproj.CoreCompileInputs.cache
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.AssemblyInfoInputs.cache

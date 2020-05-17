@@ -99,6 +99,13 @@ namespace WebIVBackend
                     new AspNetCoreOperationSecurityScopeProcessor("JWT Token")); //adds the token when a request is send
             });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
 
             services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
         }
@@ -112,6 +119,8 @@ namespace WebIVBackend
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 

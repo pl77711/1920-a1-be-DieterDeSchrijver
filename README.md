@@ -4,6 +4,8 @@ BeireCooleBites is a web application designed for people who want to register on
 
 Not only this but the application includes a fully functional managing platform for all the days and menus.
 
+The backend is hosted on Microsoft Azure: https://webivbackend20200517011230.azurewebsites.net/swagger
+
 <img src="WebIVBackend/assets/ezgif-4-0a5800767ae7.gif" alt="demo gif" />
 
 ## Getting Started

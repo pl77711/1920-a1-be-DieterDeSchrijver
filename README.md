@@ -1,4 +1,4 @@
-# [BeireCooleBites](http://dieterdeschrijver.be/) (WEBIV PROJECT 2020) - BACKEND
+# [BeireCooleBites](https://elastic-ride-83dce2.netlify.app/) (WEBIV PROJECT 2020) - BACKEND
 
 BeireCooleBites is a web application designed for people who want to register online for the BeireCooleBites week. It is an initiative by Beire Cool where they sell lunch to the benefit of 'De Warmste Week'.
 

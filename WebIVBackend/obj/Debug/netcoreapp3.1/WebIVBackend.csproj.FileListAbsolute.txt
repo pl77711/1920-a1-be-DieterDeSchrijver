@@ -102,3 +102,4 @@ C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Deb
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\diete\Documents\WEBIV\1920-a1-be-DieterDeSchrijver\WebIVBackend\obj\Debug\netcoreapp3.1\WebIVBackend.csproj.CoreCompileInputs.cache

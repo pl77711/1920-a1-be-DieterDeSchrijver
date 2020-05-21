@@ -30,6 +30,16 @@ namespace WebIVBackend.Domain.Models
 
         public Day(DateTime date, int maxUsers, Menu menu)
         {
+            if (maxUsers <= 0)
+            {
+                throw new System.Exception("maxUsers had to be greater than 0");
+            }
+
+            if (date < DateTime.Today)
+            {
+                throw new System.Exception("Date can not be in the past");
+            }
+            
             this.Date = date;
             this.MaxUsers = maxUsers;
             this.Menu = menu;
@@ -41,7 +51,7 @@ namespace WebIVBackend.Domain.Models
             if (CanAdd(user))
             {
                 RegisteredUsers.Add(user);
-                user.AddDay(Id);
+                //user.AddDay(Id);
             }
           
         }
@@ -50,13 +60,13 @@ namespace WebIVBackend.Domain.Models
         {
             if (MaxUsers <=  RegisteredUsers.Count)
             {
-                throw new System.ArgumentException( Date.ToString("dd-MM-yyyy") +" is already full");
+                throw new System.Exception( Date.ToString("dd-MM-yyyy") +" is already full");
                 
             }
             
             if (RegisteredUsers.Any(u => u.Id == user.Id))
             {
-                throw new System.ArgumentException("User already registered");
+                throw new System.Exception("User already registered");
             }
 
             return true;

@@ -82,12 +82,12 @@ namespace WebIVBackend.Data
             _menus.InsertOne(menu4);
             _menus.InsertOne(menu5);
             
-            DateTime date1 = new DateTime(2020,5,12);
-            DateTime date2 = new DateTime(2020,5,1);
-            DateTime date3 = new DateTime(2020,5,3);
-            DateTime date4 = new DateTime(2020,5,11);
-            DateTime date5 = new DateTime(2020,6,3);
-            DateTime date6 = new DateTime(2020,5,3);
+            DateTime date1 = new DateTime(2020,7,12);
+            DateTime date2 = new DateTime(2020,7,1);
+            DateTime date3 = new DateTime(2020,7,3);
+            DateTime date4 = new DateTime(2020,7,11);
+            DateTime date5 = new DateTime(2020,8,5);
+            DateTime date6 = new DateTime(2020,8,3);
             
             Day day1 = new Day(date1,20, menu1);
             Day day2 = new Day(date2,30, menu3);

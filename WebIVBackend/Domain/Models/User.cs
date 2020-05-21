@@ -13,7 +13,6 @@ namespace WebIVBackend.Domain.Models
 
         public string LastName { get; set; }
 
-        public List<string> RegisteredDays {get; set;}
 
         public User()
         {
@@ -24,18 +23,7 @@ namespace WebIVBackend.Domain.Models
         {    
             this.FirstName = firstName;
             this.LastName = lastName;
-            RegisteredDays = new List<string>();
             Id = email;
-        }
-        
-        public void AddDay (string id)
-        {
-            if (RegisteredDays.Any(d => d == id))
-            {
-                throw new System.ArgumentException("Day already registered");
-            }
-
-            RegisteredDays.Add(id);
         }
 
     }
